@@ -1,0 +1,42 @@
+#include <cs50.h>
+#include <ctype.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int main(void)
+{
+    srand(time(NULL));
+    int valor_usuario;
+    char continuar;
+
+    do {
+        int aleatorio = rand() % 10;
+        printf("Bem vindo ao jogo de adivinhação, escolha um número entre 0 e 9: \n");
+        scanf("%d", &valor_usuario);
+
+        while (valor_usuario > 9 || valor_usuario < 0 )
+        {
+            printf("Favor inserir entre 0 e 9:  \n");
+            scanf("%d", &valor_usuario);
+        }
+
+        if (valor_usuario == aleatorio)
+        {
+            printf("Parabéns, acertou! \n");
+        }
+        else
+            {
+                printf("O valor era %i , perdeu! \n", aleatorio);
+            }
+
+        printf("Deseja jogar novamente? Y/N: ");
+        scanf(" %c", &continuar);
+
+        }
+        while (continuar == 'y' || continuar == 'Y');
+
+        printf("\n");
+}
